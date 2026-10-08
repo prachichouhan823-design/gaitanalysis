@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gait Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div class="container nav">
+            <div class="brand">
+                <span class="brand-mark">GA</span>
+                <span>Gait Analyzer</span>
+            </div>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#workflow">Workflow</a>
+                <a href="#about">About</a>
+            </nav>
+            <a class="nav-button" href="#upload">Try Demo</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">AI-powered mobility insights</p>
+                    <h1>Understand your walking pattern from the comfort of home.</h1>
+                    <p class="subtitle">
+                        Gait Analyzer helps detect irregular movement patterns using video-based pose analysis,
+                        giving clinicians and users a clear view of gait health without expensive motion-capture systems.
+                    </p>
+                    <div class="actions">
+                        <a class="primary-btn" href="#upload">Upload Video</a>
+                        <a class="secondary-btn" href="#features">Explore Features</a>
+                    </div>
+                    <ul class="metrics">
+                        <li><strong>Marker-free</strong><span>Pose estimation</span></li>
+                        <li><strong>Private</strong><span>Local processing</span></li>
+                        <li><strong>Actionable</strong><span>Clinical insights</span></li>
+                    </ul>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="card panel-main">
+                        <div class="panel-header">
+                            <span class="dot red"></span>
+                            <span class="dot amber"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="analysis-visual">
+                            <div class="person-shape">
+                                <span class="joint head"></span>
+                                <span class="joint torso"></span>
+                                <span class="joint left-arm"></span>
+                                <span class="joint right-arm"></span>
+                                <span class="joint left-leg"></span>
+                                <span class="joint right-leg"></span>
+                            </div>
+                            <div class="chart-bars">
+                                <span style="height: 18%"></span>
+                                <span style="height: 28%"></span>
+                                <span style="height: 42%"></span>
+                                <span style="height: 67%"></span>
+                                <span style="height: 58%"></span>
+                                <span style="height: 76%"></span>
+                                <span style="height: 84%"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Why it matters</p>
+                    <h2>Built for clear, practical gait assessment.</h2>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="icon">📹</div>
+                        <h3>Video-based analysis</h3>
+                        <p>Upload a walking video and use AI pose estimation to study movement patterns.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon">📉</div>
+                        <h3>Movement metrics</h3>
+                        <p>Measure joint motion, stride patterns, min-max points, and gait cycle changes.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon">🧠</div>
+                        <h3>Simple interpretation</h3>
+                        <p>Translate technical results into patient-friendly explanations with LLM guidance.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="workflow" class="workflow">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Workflow</p>
+                    <h2>From video to insight in three steps.</h2>
+                </div>
+
+                <div class="steps">
+                    <div class="step">
+                        <span>01</span>
+                        <h3>Upload</h3>
+                        <p>Select a walking video recorded at home or in a clinic.</p>
+                    </div>
+                    <div class="step">
+                        <span>02</span>
+                        <h3>Analyze</h3>
+                        <p>Pose estimation extracts relevant limb motion and gait metrics.</p>
+                    </div>
+                    <div class="step">
+                        <span>03</span>
+                        <h3>Review</h3>
+                        <p>See annotated output, charts, and an easy-to-read explanation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="upload" class="upload-panel">
+            <div class="container upload-box">
+                <div class="upload-copy">
+                    <p class="eyebrow">Ready to test</p>
+                    <h2>Try the gait analysis demo.</h2>
+                    <p>Upload a walking clip to simulate the workflow and prepare your project for real analysis.</p>
+                </div>
+
+                <form method="POST" enctype="multipart/form-data" class="upload-form">
+                    <label class="file-input">
+                        <input type="file" name="video" accept="video/*" required>
+                        <span>Choose video</span>
+                    </label>
+                    <button type="submit">Analyze Gait</button>
+                </form>
+            </div>
+        </section>
+
+        {% if message %}
+        <div class="container alert-box">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+    </main>
+
+    <footer id="about" class="footer">
+        <div class="container footer-inner">
+            <div>
+                <div class="brand footer-brand">
+                    <span class="brand-mark">GA</span>
+                    <span>Gait Analyzer</span>
+                </div>
+            </div>
+            <p>Accessible movement insights for better health decisions.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,4 +1,5 @@
 streamlit
+Flask
 mediapipe
 scipy
 opencv-python
