@@ -1,6 +1,6 @@
 streamlit
 Flask
-mediapipe
+mediapipe==0.10.21
 scipy
 opencv-python-headless
 numpy
